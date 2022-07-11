@@ -1,2 +1,9 @@
-# smart-community-vue3
-Vue3版-福来来（客户端）
+# 智慧社区 Vue.js
+
+- vite
+- Vue3
+- Vant4.0
+- Naive UI
+- BetterScroll
+- npm install
+- npm run dev

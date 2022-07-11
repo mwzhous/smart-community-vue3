@@ -1,0 +1,79 @@
+@mixin no-wrap($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+// 单行文本超出隐藏并显示...省略号
+@mixin line-text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//多行文本超过行数显示省略号，只适用于WebKit及移动端
+@mixin text-overflow($line: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+// 自定义被选中文本的样式
+@mixin custom-text-selection($bg: #f0208f, $color: white) {
+  &::selection {
+    background: $bg;
+    color: $color;
+  }
+}
+
+/* 四周阴影 */
+@mixin box-shadow($bulr: 10px, $color: rgba(189, 205, 211, 0.5)) {
+  -webkit-box-shadow: 0 0 $bulr $color;
+  -moz-box-shadow: 0 0 $bulr $color;
+  box-shadow: 0 0 $bulr $color;
+}
+
+// flex布局
+@mixin layout($dir: column, $justify: center, $align: right) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin userselect($val: none) {
+  -webkit-user-select: $val;
+  -moz-user-select: $val;
+  -ms-user-select: $val;
+  user-select: $val;
+}
+
+// 正三角形
+// $direction -> top | bottom | left | right
+@mixin triangle($width, $height, $color, $direction) {
+  $width: $width/2;
+  $border-style: $height solid $color;
+  $transparent-border: $width solid transparent;
+  height: 0;
+  width: 0;
+
+  @if $direction==top {
+    border-bottom: $border-style;
+    border-left: $transparent-border;
+    border-right: $transparent-border;
+  } @else if $direction==right {
+    border-left: $border-style;
+    border-top: $transparent-border;
+    border-bottom: $transparent-border;
+  } @else if $direction==bottom {
+    border-top: $border-style;
+    border-left: $transparent-border;
+    border-right: $transparent-border;
+  } @else if $direction==left {
+    border-right: $border-style;
+    border-top: $transparent-border;
+    border-bottom: $transparent-border;
+  }
+}

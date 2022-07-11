@@ -1,0 +1,72 @@
+$fs-s: 13px;
+$fs-m: 16px;
+$fs-l: 19px;
+$fs-xl: 20px;
+$fs-xxl: 52px;
+// 颜色编码
+$cf: #fff;
+$c4: #444;
+$c8: #888;
+$cb: #bbb;
+$ce8: #e8e8e8;
+$wd-primary: #ed7545;
+$wd-danger: #f75353;
+$wd-success: #59c535;
+$primary-lg: linear-gradient(90deg, #fa8e07, #f17716);
+
+// 宽高
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// position居中
+@mixin positionCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+// flex布局 默认居中
+@mixin flexLayout($center1: center, $center2: center) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: $center1; // flex-start | flex-end | center | space-between | space-around
+  align-items: $center2; // flex-start | flex-end | center | baseline | stretch
+}
+
+// 滚动条样式
+%scrollbar {
+  &::-webkit-scrollbar {
+    // 滚动条整体部分，其中有属性 width、height、background、border等（和块元素一样）
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track-piece {
+    // 内层轨道，滚动条中间部分
+    background: #aaa;
+  }
+  &::-webkit-scrollbar-thumb {
+    // 滚动条里可以拖动的部分
+    background: rgb(135, 206, 206);
+    border-radius: 4px;
+  }
+}
+
+@mixin px($p) {
+  padding-left: $p;
+  padding-right: $p;
+}
+
+@mixin mx($p) {
+  margin-left: $p;
+  margin-right: $p;
+}
